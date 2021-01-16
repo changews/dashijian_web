@@ -12,7 +12,7 @@ $.ajaxPrefilter(function (options) {
             Authorization: localStorage.getItem('token') || ''
         }
     }
-    // 全局统一挂载 complete 回调函数
+    // 全局统一挂载 complete 回调函数   用来防止用户自己输入首页地址跳转 验证身份认证是否成功
     options.complete = function (res) {
         // console.log('执行了 complete 回调：')
         // console.log(res)

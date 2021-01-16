@@ -3,6 +3,9 @@ $(function () {
     getUserInfo()
 
 
+
+
+    // 退出功能
     var layer = layui.layer
     $('#btn-logout').on('click', function () {
         // alert('a')
@@ -20,12 +23,15 @@ $(function () {
             layer.close(index)
         })
     })
+
+
+
 })
 
 
 
 
-// 获取用户的基本信息
+// 获取用户的基本信息功能
 function getUserInfo() {
     $.ajax({
         method: 'GET',
@@ -46,7 +52,8 @@ function getUserInfo() {
 }
 
 
-// 渲染用户的头像
+
+// 渲染用户的头像功能
 function renderAvatar(user) {
     // 获取用户名称   nickname 昵称   username 登录名  如果有昵称以昵称为准
     var name = user.nickname || user.username
@@ -64,8 +71,10 @@ function renderAvatar(user) {
         $('.layui-nav-img').hide()
         // 获取用户名的第一个字符  toUpperCase() 方法用于把字符串转换为大写。
         var first = name[0].toUpperCase()
+        // 让text - avatar添加上first元素内容
         $('.text-avatar')
             .html(first)
+            // 显示
             .show()
     }
 }
